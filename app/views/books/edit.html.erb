@@ -1,0 +1,14 @@
+<h1>Edit Your Book Details</h1>
+<br />
+<div>
+  <%= simple_form_for @book do |f| %>
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.input :genre %>
+    <%= f.input :classification, collection: [ 'General Works', 'Philosophy, Psychology, Religion', 'World History', 'U.S. History', 'Geography, Anthropology, Recreation', 'Social Sciences', 'Law', 'Education', 'Fine Arts', 'Language and Literature', 'Science', 'Medicine', 'Technology', 'Agriculture', 'Military', 'Naval Science', 'Bibliography and Library Science', 'Auxiliary Sciences' ] %>
+    <%= f.input :type, as: :radio_buttons %>
+    <%= f.input :year %>
+    <br />
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+</div>

@@ -1,1 +1,14 @@
 <h1>Books go here</h1>
+<br />
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+<br />
+
+<% @books.each do |book| %>
+  <div>
+    <h2><%= link_to book.title, book_path(book) %> - <%= book.author %></h2>
+  </div>
+<% end %>
