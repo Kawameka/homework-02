@@ -9,7 +9,7 @@
 book_types = [ 'Fiction', 'Nonfiction' ]
 classifications = [ 'General Works', 'Philosophy, Psychology, Religion', 'World History', 'U.S. History', 'Geography, Anthropology, Recreation', 'Social Sciences', 'Law', 'Education', 'Fine Arts', 'Language and Literature', 'Science', 'Medicine', 'Technology', 'Agriculture', 'Military', 'Naval Science', 'Bibliography and Library Science', 'Auxiliary Sciences' ]
 
-50.times do
+48.times do
   random_year = rand 1800..2017
   Book.create!(title: Faker::Book.title, author: Faker::Book.author, genre: Faker::Book.genre, classification: classifications.sample, book_type: book_types.sample, year: random_year)
 end
