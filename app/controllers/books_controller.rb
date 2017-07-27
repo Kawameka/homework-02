@@ -9,8 +9,15 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create(book_params)
-    redirect_to root_path
+    @book = Book.new(book_params)
+
+    if @book.save
+      flash.notice = 'Book successfully save!'
+      redirect_to root_path
+    else
+      flash.alert = 'Book was not save, please try again.'
+      render :new
+    end
   end
   
   def show
