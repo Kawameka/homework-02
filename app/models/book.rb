@@ -1,5 +1,7 @@
 class Book < ApplicationRecord
-  validates :title, :author, :genre, :classification, :book_type, :year, presence: true
+  validates :title, :genre, :classification, :book_type, :year, presence: true
+  has_many :authorships
+  has_many :authors, through :authorships
 
   # sets index @books variable to either "where" or "all"
   def self.search(term)

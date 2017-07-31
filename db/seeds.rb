@@ -9,7 +9,11 @@
 book_types = [ 'Fiction', 'Nonfiction' ]
 classifications = [ 'General Works', 'Philosophy, Psychology, Religion', 'World History', 'U.S. History', 'Geography, Anthropology, Recreation', 'Social Sciences', 'Law', 'Education', 'Fine Arts', 'Language and Literature', 'Science', 'Medicine', 'Technology', 'Agriculture', 'Military', 'Naval Science', 'Bibliography and Library Science', 'Auxiliary Sciences' ]
 
-48.times do
+50.times do
   random_year = rand 1800..2017
-  Book.create!(title: Faker::Book.title, author: Faker::Book.author, genre: Faker::Book.genre, classification: classifications.sample, book_type: book_types.sample, year: random_year)
+  Book.create!(title: Faker::Book.title, genre: Faker::Book.genre, classification: classifications.sample, book_type: book_types.sample, year: random_year)
+end
+
+25.times do
+  Author.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, age: Faker::Number.between(20, 100))
 end

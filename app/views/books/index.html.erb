@@ -9,12 +9,12 @@
 
 <hr>
 <%# links to new book form%>
-<h2><%= link_to 'Add a New Book', new_book_path %>
+<h2><%= link_to 'Add a New Book', new_book_path %> ||| <%= link_to 'Add a New Author', new_author_path %></h2>
 <hr>
 
 <%# displays all books in db%>
 <% @books.each do |book| %>
   <div>
-    <h3><%= link_to book.title, book_path(book) %> - <%= book.author %></h3>
+    <h3><%= link_to book.title, book_path(book) %></h3>
   </div>
 <% end %>
