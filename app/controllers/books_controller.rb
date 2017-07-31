@@ -12,10 +12,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      flash.notice = 'Book successfully save!'
+      flash.notice = 'Book successfully saved!'
       redirect_to root_path
     else
-      flash.alert = 'Book was not save, please try again.'
+      flash.alert = 'Book was not saved, please try again.'
       render :new
     end
   end
