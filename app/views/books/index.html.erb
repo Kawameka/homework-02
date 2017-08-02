@@ -15,6 +15,6 @@
 <%# displays all books in db%>
 <% @books.each do |book| %>
   <div>
-    <h3><%= link_to book.title, book_path(book) %></h3>
+    <h3><%= link_to book.book_info, book_path(book) %></h3>
   </div>
 <% end %>
