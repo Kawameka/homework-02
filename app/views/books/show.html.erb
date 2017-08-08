@@ -1,17 +1,18 @@
-<div>
-    <h2><%= @book.title %></h2><br />
-    <h3><%= @book.year %></h3><br />
-    <h3><%= @book.classification %> - <%= @book.genre %> - <%= @book.book_type %>
+<br />
+<div class= "box-box col-10 offset-1">
+    <h2><center><%= @book.title %></center></h2><br />
+    <h3><%= "#{@book.classification} - #{@book.genre} - #{@book.book_type} - #{@book.year}" %>
 </div>
 <br />
-<div>
-  <h2>Authors</h2><br />
+<div class="box-box col-10 offset-1">
+  <h2>Author(s)</h2><br />
     <% @book.authors.each do |author| %>
-      <h2><%= link_to author.full_name, author_path(author) %></h2>
+      <h3><%= link_to author.full_name, author_path(author) %></h3>
     <% end %>
 </div>
 <br />
+<div class= "buttons">
+  <%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure you want to delete this book?'}, class: 'btn btn-danger' %>
 
-<%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure you want to delete this book?'}, class: 'btn btn-danger' %>
-
-<%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %>
+  <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %>
+</div>

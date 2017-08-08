@@ -8,7 +8,7 @@ class Book < ApplicationRecord
     if term
       # allows searches for all columns of book db
       # "%{term}%" is required for each ILIKE query
-      where(['author ILIKE ? OR title ILIKE ? OR genre ILIKE ? OR classification ILIKE ? OR book_type ILIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"])
+      where(['title ILIKE ? OR genre ILIKE ? OR classification ILIKE ? OR book_type ILIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"])
     else
       all
     end

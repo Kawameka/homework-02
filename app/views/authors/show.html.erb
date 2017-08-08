@@ -1,15 +1,18 @@
-<div>
-  <h2><%= @author.full_name %></h2>
-</div>
 <br />
-<div>
-  <h2>Books</h2><br />
-    <% @author.books.each do |book| %>
-      <h2><%= link_to book.title, book_path(book) %></h2>
-    <% end %>
+<div class="box-box col-10 offset-1">
+  <br />
+    <h2><center><%= @author.full_name %></center></h2>
+  <br />
+    <h2>Books</h2><br />
+      <% @author.books.each do |book| %>
+        <h3><%= link_to book.title, book_path(book) %></h3>
+      <% end %>
+      <br />
 </div>
+
 <br />
+<div class="buttons">
+  <%= link_to 'Delete', author_path(@author), method: :delete, data: {confirm: 'Are you sure you want to delete this author?'}, class: 'btn btn-danger' %>
 
-<%= link_to 'Delete', author_path(@author), method: :delete, data: {confirm: 'Are you sure you want to delete this author?'}, class: 'btn btn-danger' %>
-
-<%= link_to 'Edit Author', edit_author_path(@author), class: 'btn btn-primary' %>
+  <%= link_to 'Edit Author', edit_author_path(@author), class: 'btn btn-primary' %>
+</div>

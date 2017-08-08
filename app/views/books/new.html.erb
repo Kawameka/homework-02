@@ -1,21 +1,26 @@
-<h1>Add a New Book</h1>
-
-<% if flash[:notice] %>
-  <h1><%= flash.now[:notice] %></h1>
-<% elsif flash[:alert] %>
-  <h1><%= flash.now[:alert] %></h1>
-<% end %>
-
 <br />
-<div>
-  <%= simple_form_for @book do |f| %>
-    <%= f.input :title %>
-    <%= f.input :author %>
-    <%= f.input :genre %>
-    <%= f.input :classification, collection: [ 'General Works', 'Philosophy, Psychology, Religion', 'World History', 'U.S. History', 'Geography, Anthropology, Recreation', 'Social Sciences', 'Law', 'Education', 'Fine Arts', 'Language and Literature', 'Science', 'Medicine', 'Technology', 'Agriculture', 'Military', 'Naval Science', 'Bibliography and Library Science', 'Auxiliary Sciences' ] %>
-    <%= f.input :book_type, collection: [ 'Fiction', 'Nonfiction' ] %>
-    <%= f.input :year %>
-    <br />
-    <%= f.submit 'Create' , class: 'btn btn-primary' %>
+<div class="box-box col-10 offset-1">
+  <br />
+  <h1><center>Add a New Book</center></h1>
+
+  <% if flash[:notice] %>
+    <h1><%= flash.now[:notice] %></h1>
+  <% elsif flash[:alert] %>
+    <h1><%= flash.now[:alert] %></h1>
   <% end %>
+
+  <br />
+  <div>
+    <%= simple_form_for @book do |f| %>
+      <%= f.input :title %>
+      <%#<%= f.input :author %>
+      <%= f.input :genre %>
+      <%= f.input :classification, collection: [ 'General Works', 'Philosophy, Psychology, Religion', 'World History', 'U.S. History', 'Geography, Anthropology, Recreation', 'Social Sciences', 'Law', 'Education', 'Fine Arts', 'Language and Literature', 'Science', 'Medicine', 'Technology', 'Agriculture', 'Military', 'Naval Science', 'Bibliography and Library Science', 'Auxiliary Sciences' ] %>
+      <%= f.input :book_type, collection: [ 'Fiction', 'Nonfiction' ] %>
+      <%= f.input :year %>
+      <br />
+      <%= f.submit 'Create' , class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <br />
 </div>

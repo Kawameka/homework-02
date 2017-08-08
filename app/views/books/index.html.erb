@@ -1,20 +1,15 @@
 <br />
-<%# creates a search bar for the root page %>
-<%# sets the searched term to variable "term" %>
-<%= form_tag(root_path, method: :get) do %>
-  <%= text_field_tag :term, params[:term] %>
-  <%= submit_tag 'Search', name: nil %>
-<% end %>
-<br />
-
-<hr>
-<%# links to new book form%>
-<h2><%= link_to 'Add a New Book', new_book_path %> ||| <%= link_to 'Add a New Author', new_author_path %></h2>
-<hr>
 
 <%# displays all books in db%>
-<% @books.each do |book| %>
-  <div>
-    <h3><%= link_to book.book_info, book_path(book) %></h3>
-  </div>
-<% end %>
+<div class="box-box col-10 offset-1">
+  <br />
+  <% @books.each do |book| %>
+    <ul>
+      <li>
+        <div>
+          <h3><%= link_to book.book_info, book_path(book) %></h3>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+</div>
