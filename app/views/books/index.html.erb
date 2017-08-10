@@ -12,4 +12,5 @@
       </li>
     </ul>
   <% end %>
+  <%= will_paginate(@books, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
 </div>

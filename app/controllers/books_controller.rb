@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @books = Book.all
+    @books = Book.paginate(:page => params[:page], :per_page => 25)
   end
 
   def new
