@@ -1,10 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
-  def index
-    @authors = Author.search(params[:term]).all
-  end
-
   def new
     @author = Author.new
   end

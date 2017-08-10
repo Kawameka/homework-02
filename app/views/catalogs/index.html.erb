@@ -1,0 +1,15 @@
+<br />
+
+<%# displays all books in db%>
+<div class="box-box col-10 offset-1">
+  <br />
+  <% @books.each do |book| %>
+    <ul>
+      <li>
+        <div>
+          <h3><%= link_to book.book_info, book_path(book) %></h3>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+</div>

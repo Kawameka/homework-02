@@ -8,7 +8,7 @@ class Book < ApplicationRecord
     if term
       # allows searches for all columns of book db
       # "%{term}%" is required for each ILIKE query
-      where(['title ILIKE ? OR genre ILIKE ? OR classification ILIKE ? OR book_type ILIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%"])
+      joins(:authors).where('title ILIKE ? OR genre ILIKE ? OR classification ILIKE ? OR book_type ILIKE ? OR authors.first_name ILIKE ? OR authors.last_name ILIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
     else
       all
     end
@@ -18,8 +18,3 @@ class Book < ApplicationRecord
     "#{title} by #{authors.map(&:full_name).join(", ")}"
   end  
 end
-
-# book.authors.each do | author |
-#   author.full_name
-# end
-# [ ]
